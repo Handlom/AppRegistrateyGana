@@ -3,6 +3,9 @@
 $correo= $_POST["email"];
 $subject = "TEST APP HANDLOM";
 // Get HTML contents from file
+
+
+
 $htmlContent = file_get_contents("templates/email_template.html");
 
 // Set content-type for sending HTML email

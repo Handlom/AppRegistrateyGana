@@ -1,0 +1,56 @@
+<div>
+    <center>
+      <img src="img/handlom.png"><br><br>
+      <img src="img/slider-test01.jpg"><br>
+           <div class="row">
+          <form class="col s12" ng-submit="agregarCategoria(objPersona)" action="index.php" method="post">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="ruc" name="ruc" type="text" ng-model="objPersona.ruc" maxlength="10" minlength="10" class="validate" style="font-size: 2em;" required>
+                <label for="ruc" data-error="" data-success="" style="font-size: 1.5em;">RUC:</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="compania" name="compania" type="text" ng-model="objPersona.compania" class="validate" style="font-size: 2em;" required>
+                <label for="compania" data-error="" data-success="" style="font-size: 1.5em;">Compa&#241;ia:</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" name="email" type="email" ng-model="objPersona.email" class="validate" style="font-size: 2em;" required>
+                <label for="email" data-error="" data-success="" style="font-size: 1.5em;">Email:</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="contacto" name="contacto" type="text" ng-model="objPersona.contacto" class="validate" style="font-size: 2em;" required>
+                <label for="contacto" data-error="" data-success="" style="font-size: 1.5em;">Contacto:</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="telefono" name="telefono" type="text" ng-model="objPersona.telefono" maxlength="11" minlength="7" class="validate" style="font-size: 2em;" required>
+                <label for="telefono" data-error="" data-success="" style="font-size: 1.5em;">Telefono</label>
+              </div>
+            </div>
+            <div class="row">
+              <label for="servicioI" data-error="" data-success="" style="font-size: 1.5em;">Servicio de inter&eacute;s:</label>
+               <div class="input-field col s12">
+                  <select style="font-size: 1.5em;" class="browser-default" name="servicioI" ng-model="objPersona.si" required>
+                    <option value="" disabled selected>Seleccione una opcion</option>
+                    <option  style="font-size: 1em;" value="1">Alquiler de Equipos</option>
+                    <option style="font-size: 1em;" value="2">Venta de Equipos</option>
+                    <option style="font-size: 1em;" value="3">Publicidad Digital</option>
+                    <option style="font-size: 1em;" value="4">Soluciones y Proyectos</option>
+                  </select>              
+                </div>
+              </div>
+              <input  type="submit" id="boton" value="QUIERO MI CUPON" style="font-size: 2em;">
+            </div>
+            
+          </form>
+        </div>
+      <img src="img/pie-test01.jpg">
+     </center>
+  </div>
