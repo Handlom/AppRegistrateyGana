@@ -6,9 +6,10 @@ $correo= $_POST["email"];
 $contacto= $_POST["contacto"];
 $telefono= $_POST["telefono"];
 $servicioI= $_POST["servicioI"];
-$subject = "Handlom - Expotextil";
-// Get HTML contents from file
 
+$codigo= $_POST["codigo"];
+$subject = "Handlom - Cupón: " . $codigo;
+// Get HTML contents from file
 
 if ($servicioI=="1") {
 	$htmlContent = file_get_contents("templates/email_template1.html");
@@ -30,7 +31,7 @@ $headers .= 'From: Handlom - Expotextil<roger.canchanya.syp@handlom.com>' . "\r\
 $headers .= 'Cc:roger.canchanya.syp@handlom.com' . "\r\n";
 
 // Send email
-if(mail($correo,$subject,$htmlContent,$headers)):
+if(mail($correo,$subject, file_get_contents("templates/email.html"),$headers)):
 	$successMsg = 'El email fue enviado con éxito.';
 	header("Location:form.html");
 else:

@@ -2,12 +2,13 @@
     <center>
       <img src="img/handlom.png"><br><br>
       <img src="img/slider-test01.jpg"><br>
-           <div class="row">
-          <form class="col s12" ng-submit="agregarCategoria(objPersona)" action="index.php" method="post">
+          <div class="row">
+          <form class="col s12" ng-submit="agregarCategoria()" action="index.php" method="post">
             <div class="row">
               <div class="input-field col s12">
-                <input id="ruc" name="ruc" type="text" ng-model="objPersona.ruc" maxlength="10" minlength="10" class="validate" style="font-size: 2em;" required>
+                <input  id="ruc" name="ruc" type="text" ng-model="objPersona.ruc" maxlength="10" minlength="10" class="validate" style="font-size: 2em;" ng-change="valRuc()" required>
                 <label for="ruc" data-error="" data-success="" style="font-size: 1.5em;">RUC:</label>
+                <span style="color:red;font-size: 1.5em;">{{validacion}}</span>
               </div>
             </div>
             <div class="row">
@@ -46,9 +47,9 @@
                   </select>              
                 </div>
               </div>
-              <input  type="submit" id="boton" value="QUIERO MI CUPON" style="font-size: 2em;">
-            </div>
-            
+              <input  value="{{codigo}}" type="text" name="codigo">
+              <input  type="submit" id="submit-btn" value="QUIERO MI CUPON" style="font-size: 2em;">
+            </div>            
           </form>
         </div>
       <img src="img/pie-test01.jpg">
