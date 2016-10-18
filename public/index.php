@@ -1,24 +1,35 @@
 <?php
 
-$ruc= $_POST["ruc"];
-$compania= $_POST["compania"];
+/*
 $correo= $_POST["email"];
-$contacto= $_POST["contacto"];
-$telefono= $_POST["telefono"];
 $servicioI= $_POST["servicioI"];
 
-$codigo= $_POST["codigo"];
+$codigo= $_POST["codigo"];*/
+
+
+
+//
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+$email = $request->email;
+$servicioSelecionado = $request->servicioSelecionado;
+$codigo = $request->codigo;
 $subject = "Handlom - Cupón: " . $codigo;
+
+//
+
+
+
 // Get HTML contents from file
 
-if ($servicioI=="1") {
-	$htmlContent = file_get_contents("templates/email_template1.html");
-}elseif ($servicioI=="2") {
-	$htmlContent = file_get_contents("templates/email_template2.html");
-}elseif ($servicioI=="3") {
-	$htmlContent = file_get_contents("templates/email_template3.html");
-}elseif ($servicioI=="4") {
-	$htmlContent = file_get_contents("templates/email_template4.html");
+if ($servicioSelecionado=="Publicidad_Digital") {
+	$htmlContent = file_get_contents("templates/email1.html");
+}elseif ($servicioSelecionado=="Alquiler_de_Equipos") {
+	$htmlContent = file_get_contents("templates/email2.html");
+}elseif ($servicioSelecionado=="Venta_de_Equipos") {
+	$htmlContent = file_get_contents("templates/email3.html");
+}elseif ($servicioSelecionado=="Soluciones_y_Proyectos") {
+	$htmlContent = file_get_contents("templates/email4.html");
 }
 
 
@@ -31,9 +42,9 @@ $headers .= 'From: Handlom - Expotextil<roger.canchanya.syp@handlom.com>' . "\r\
 $headers .= 'Cc:roger.canchanya.syp@handlom.com' . "\r\n";
 
 // Send email
-if(mail($correo,$subject, file_get_contents("templates/email.html"),$headers)):
+if(mail($email,$subject, $htmlContent,$headers)):
 	$successMsg = 'El email fue enviado con éxito.';
-	header("Location:form.html");
+	//header("Location:index.html");
 else:
 	$errorMsg = 'Ocurrió un problema, por favor intentelo de nuevo.';
 endif;

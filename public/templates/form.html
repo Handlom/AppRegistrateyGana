@@ -1,57 +1,44 @@
-<div>
-    <center>
-      <img src="img/handlom.png"><br><br>
-      <img src="img/slider-test01.jpg"><br>
-          <div class="row">
-          <form class="col s12" ng-submit="agregarCategoria()" action="index.php" method="post">
-            <div class="row">
-              <div class="input-field col s12">
-                <input  id="ruc" name="ruc" type="text" ng-model="objPersona.ruc" maxlength="10" minlength="10" class="validate" style="font-size: 2em;" ng-change="valRuc()" required>
-                <label for="ruc" data-error="" data-success="" style="font-size: 1.5em;">RUC:</label>
-                <span style="color:red;font-size: 1.5em;">{{validacion}}</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="compania" name="compania" type="text" ng-model="objPersona.compania" class="validate" style="font-size: 2em;" required>
-                <label for="compania" data-error="" data-success="" style="font-size: 1.5em;">Compa&#241;ia:</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" name="email" type="email" ng-model="objPersona.email" class="validate" style="font-size: 2em;" required>
-                <label for="email" data-error="" data-success="" style="font-size: 1.5em;">Email:</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="contacto" name="contacto" type="text" ng-model="objPersona.contacto" class="validate" style="font-size: 2em;" required>
-                <label for="contacto" data-error="" data-success="" style="font-size: 1.5em;">Contacto:</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="telefono" name="telefono" type="text" ng-model="objPersona.telefono" maxlength="11" minlength="7" class="validate" style="font-size: 2em;" required>
-                <label for="telefono" data-error="" data-success="" style="font-size: 1.5em;">Telefono</label>
-              </div>
-            </div>
-            <div class="row">
-              <label for="servicioI" data-error="" data-success="" style="font-size: 1.5em;">Servicio de inter&eacute;s:</label>
-               <div class="input-field col s12">
-                  <select style="font-size: 1.5em;" class="browser-default" name="servicioI" ng-model="objPersona.si" required>
-                    <option value="" disabled selected>Seleccione una opcion</option>
-                    <option  style="font-size: 1em;" value="1">Alquiler de Equipos</option>
-                    <option style="font-size: 1em;" value="2">Venta de Equipos</option>
-                    <option style="font-size: 1em;" value="3">Publicidad Digital</option>
-                    <option style="font-size: 1em;" value="4">Soluciones y Proyectos</option>
-                  </select>              
+
+      <div class="row" style="background-image: url('img/fondo_form.jpg'); background-size: 1920px 1080px;width:1920px;height: 1065px;">
+        <form class="col s12" ng-submit="agregarCategoria()" >
+          <div class="row">        
+            <div class="col s4"></div>
+            <div class="col s8">            
+              <div class="row" style="margin-top: 125px; margin-left: 25px;">
+                <div class="input-field col s6">
+                  <input id="contacto" name="contacto" type="text" ng-model="objPersona.contacto" class="validate" style="font-size: 2em;" required>
+                  <label for="contacto" data-error="" data-success="" style="font-size: 1.75em;font-weight: bold;color: black;">CONTACTO</label>
                 </div>
+
+                <div class="input-field col s6">
+                  <input id="email" name="email" type="email" ng-model="objPersona.email" class="validate" style="font-size: 2em;" required>
+                  <label for="email" data-error="" data-success="" style="font-size: 1.75em;font-weight: bold;color: black;">EMAIL</label>
+                </div>
+              </div>            
+              <div class="row" style="margin-left: 25px;">
+                <div class="input-field col s6">
+                  <input id="telefono" name="telefono" type="text" ng-model="objPersona.telefono" maxlength="11" minlength="7" class="validate" style="font-size: 2em;" required>
+                  <label for="telefono" data-error="" data-success="" style="font-size: 1.75em;font-weight: bold;color: black;">TELEFONO</label>
+                </div>
+                <div class="input-field col s6">                  
+                  <label for="servicio" data-error="" data-success="" style="font-size: 1.75em;font-weight: bold;color: black;">SERVICIO DE INTERES</label>                
+                </div>        
               </div>
-              <input  value="{{codigo}}" type="text" name="codigo">
-              <input  type="submit" id="submit-btn" value="QUIERO MI CUPON" style="font-size: 2em;">
-            </div>            
-          </form>
-        </div>
-      <img src="img/pie-test01.jpg">
-     </center>
-  </div>
+            </div>
+          </div>
+        <br>
+          <div class="row" style="margin-top: 430px;">
+            <div >
+              <div class="col waves-effect" type="button" ng-click="seleccionarServicio('Publicidad_Digital')" style="width:325px;height:50px;margin-left: 85px;"></div>
+              <div class="col waves-effect" type="button" ng-click="seleccionarServicio('Alquiler_de_Equipos')" style="width:325px;height:50px;margin-left: 35px;"></div>
+              <div class="col waves-effect" type="button" ng-click="seleccionarServicio('Venta_de_Equipos')" style="width:325px;height:50px;margin-left: 35px;"></div>
+              <div class="col waves-effect" type="button" ng-click="seleccionarServicio('Soluciones_y_Proyectos')" style="width:325px;height:50px;margin-left: 55px;"></div>
+            </div>
+            <div class=""> </div>
+            <div class="col">            
+                <input  style="display: none;" value="{{codigo}}" type="text" name="codigo" >
+                <input  class="waves-effect" style="margin-top:-100px;width:275px;height:150px;margin-left: 45px; background-color: transparent;border-color: transparent;" type="submit" id="submit-btn" value="">
+            </div>
+          </div>
+        </form>          
+      </div>
